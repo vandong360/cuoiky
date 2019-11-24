@@ -1,7 +1,7 @@
 @extends('layouts.mainBlog')
 
 @section('head.title')
-   Trang Blog
+   Xem Blog
 @endsection
 
     
