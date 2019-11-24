@@ -9,7 +9,10 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <h3>Tạo bài viết mới</h3> <br>
+            <a href="{{ route('blog.index') }}" class="btn btn-link">
+                <span class="fas fa-angle-double-left"></span>Quay lại
+            </a>  <br> <br>
+            <h2>Tạo bài viết mới</h2> <br>
         </div>
     </div>
 
@@ -38,13 +41,13 @@
 
                 <div class="form-group">
                     <label for="content" class="control-lable"><b> Nội dung:</b></label>
-                    <textarea class="form-control" type="text" name="content" id="content" required placeholder="Nhập nội dung bài viết" rows="5"></textarea>
+                    <textarea class="form-control" type="text" name="content" id="content" required placeholder="Nhập nội dung bài viết" rows="10"></textarea>
                 </div>
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Thêm bài viết</button>
                 </div>
-            </form>         
+            </form>    <br> <br>     
         </div>
     </div>
 </div>
