@@ -32,6 +32,15 @@
                 <input type="hidden" name="_token" value="{{  csrf_token()  }}">
 
                 <div class="form-group">
+                    <label for="category" class="control-lable"><b>Danh mục:</b></label> <br>
+                    <select class="form-control" name="category" id="category" >
+                        <option  value="Bóng đá">Bóng đá</option>
+                        <option  value="Thể hình">Thể hình</option>
+                        <option  value="Bơi lội">Bơi lội</option>
+                    </select>
+                </div> 
+
+                <div class="form-group">
                     <label for="title" class="control-lable"><b>Tiêu đề:</b> </label>
                     <input class="form-control" type="text" name="title" id="title" value="{{ $edit->title ?? old('title') }}" >
                 </div>  

@@ -30,12 +30,21 @@
                 </div> 
             @endif    
             
-            <form action="{{ route('blog.store') }}" method="POST" class="form-horizontal">
+            <form action="{{ route('blog.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data"> 
 
                 <input type="hidden" name="_token" value="{{  csrf_token()  }}">
 
                 <div class="form-group">
-                    <label for="title" class="control-lable"><b>Tiêu đề:</b> </label>
+                    <label for="category" class="control-lable"><b>Danh mục:</b></label> <br>
+                    <select class="form-control" name="category" id="category" >
+                        <option value="Bóng đá">Bóng đá</option>
+                        <option value="Thể hình">Thể hình</option>
+                        <option value="Bơi lội">Bơi lội</option>
+                    </select>
+                </div> 
+
+                <div class="form-group">
+                    <label for="title" class="control-lable"><b>Tiêu đề:</b>    
                     <input class="form-control" type="text" name="title" id="title" required placeholder="Nhập tiêu đề bài viết">
                 </div>  
 
@@ -45,9 +54,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="img" class="control-lable"><b>Thêm ảnh:</b></label>
+                    <input type="file" name="img" id="img" required="false">
+                </div> 
+
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary">Thêm bài viết</button>
                 </div>
-            </form>    <br> <br>     
+            </form>  
+
+            <hr>                
+
+            <br> <br>     
         </div>
     </div>
 </div>

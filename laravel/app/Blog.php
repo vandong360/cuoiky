@@ -10,6 +10,8 @@ class Blog extends Model
 
     protected $filltable = [
        'title',
-       'content' 
+       'content',
+       'img',
+       'category'
     ];
 }

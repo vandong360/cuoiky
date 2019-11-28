@@ -13,8 +13,15 @@
                 <span class="fas fa-angle-double-left"></span>Quay lại
             </a> <br> 
 
-            {{-- @php $content = $get->content; @endphp --}}
-            <h2 style="text-align: center">{{ $get->title }}</h2> <br> <br>
+            <h4 style="text-align: center; text-transform: uppercase; color: blue;"><i> {{ $get->category  }}</i></h4>
+
+            <h2 style="text-align: center;">{{ $get->title }}</h2>
+            <br>
+            
+            <img src="{{ asset('images/'.$get->img) }}" style="width: 100%;" alt="Ảnh">
+            
+            <br>
+            <br> 
             <p style="font-size: 17px; font-family: Tahoma;"> @php echo nl2br($get->content); @endphp </p>
             <br>
             <a href="{{ route('blog.edit', $get->id) }}" class="btn btn-info">Cập nhật</a>

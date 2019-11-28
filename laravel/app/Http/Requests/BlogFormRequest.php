@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BlogFormRequest extends FormRequest
@@ -25,7 +25,8 @@ class BlogFormRequest extends FormRequest
     {
         return [
             'title' => 'required|min:10',
-            'content' => 'required|min:30',
+            'content' => 'required|min:20',
+            'img' => 'image|mimes:jpeg,png,jpg,gif|max:4096'
         ];
     }
 
@@ -35,7 +36,10 @@ class BlogFormRequest extends FormRequest
             'title.required' => 'Vui lòng nhập',
             'contend.required' => 'Vui lòng nhập',
             'title.min' => 'Vui lòng nhập hơn 10 kí tự',
-            'content.min' => 'Vui lòng nhập hơn 30 kí tự',
+            'content.min' => 'Vui lòng nhập hơn 20 kí tự',
+            'img.image' => 'Chỉ được chọn file ảnh',
+            'img.mimes' => 'Đuôi file phải là: jpeg, png, jpg, gif',
+            'img.max' => 'Kích thước ảnh không vượt quá 4Mb'
         ];
     }
 }

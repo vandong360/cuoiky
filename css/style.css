@@ -55,7 +55,7 @@ input[type="submit"],input[type="reset"],a,.agileinfo_about_grid1_pos,.agileinfo
 }
 .agileits_web_banner_nav{
 	padding:1em;
-	background:#000000;
+	background:#0e2b69;
 }
 .navbar-default {
     background: none;
@@ -875,8 +875,63 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 .agile-footer-grid  ul li a:hover{
 	color:#82b62d;
 }
+
+
+  /*==Style cho menu blog index===*/
+
+  div #menu {
+      margin-top: -22px;
+  }
+
+  #menu ul {
+    background: #0e2b69;
+    list-style-type: none;
+    text-align: center;
+  }
+  #menu li {
+    color: #f1f1f1;
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: -5px;
+  }
+  #menu a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+  }
+  #menu a:hover {
+    background: #F1F1F1;
+    color: #333;
+  }
+
+  .sub-menu li {
+        display: none;
+  }
+
+  #menu li {
+        position: relative;
+   }
+
+   .sub-menu {
+        display: none;
+        position: absolute;
+   }
+
+   #menu li:hover .sub-menu {
+        display: block;
+   }
+
+    .sub-menu li {
+        margin-left: 0 !important;
+    }
+
+
+
 /* Animating the UL 
 -_-_-_-_-_-_-_-_-_-_-_-_ 
+
 
 @keyframes "scroll" {
  from {

@@ -12,7 +12,7 @@
                         <li class="menu__item"><a href="#quan" class="menu__link scroll">Tìm sân</a></li>
                         <li class="menu__item"><a href="{{ url('/blog') }}">Blog</a></li>
                         <li class="menu__item">   
-                                <a class="nav-link text-white" href="{{ asset('/dangnhap') }}">Đăng nhập&ensp;</a>
+                            <a class="nav-link text-white" href="{{ asset('/dangnhap') }}">Đăng nhập&ensp;</a>
                             {{-- {{Auth::user()->name}} --}}
                         </li>
                     </ul>						

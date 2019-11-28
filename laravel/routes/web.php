@@ -51,10 +51,22 @@ Route::get('/user', function () {
         'uses' => 'BlogController@store'
     ]);
     
+
+    Route::get('/blog/danhmuc/{cate}', [
+        'as'   => 'blog.danhmuc',
+        'uses'  => 'BlogController@Danhmuc'
+    ]);
+
+    
+
     Route::get('/blog/{id}', [
         'as'   => 'blog.show',
         'uses'  => 'BlogController@show'
     ]);
+
+
+  
+
     
     Route::get('/blog/{id}/edit', [
         'as' => 'blog.edit',
@@ -69,6 +81,8 @@ Route::get('/user', function () {
         'as'   => 'blog.update',
         'uses'  => 'BlogController@update'
     ]);
+
+    
     
     // ------ end-blog ----------------------- //
 
