@@ -16,8 +16,10 @@
             <h4 style="text-align: center; text-transform: uppercase; color: blue;"><i> {{ $get->category  }}</i></h4>
 
             <h2 style="text-align: center;">{{ $get->title }}</h2>
-            <br>
+            <br> <br>
             
+            <span><i>Cập nhật lần cuối: {{ $get->updated_at }}</i></span>
+            <br> <br>
             <img src="{{ asset('images/'.$get->img) }}" style="width: 100%;" alt="Ảnh">
             
             <br>

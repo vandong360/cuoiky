@@ -40,10 +40,6 @@
 		@include('layouts.about')
 	<!-- //about -->
 
-	<!-- stats -->
-		{{-- @include('layouts.stats') --}}
-	<!-- //stats -->
-
 	<!-- Tin tuc --> 
 		@include('layouts.tintuc')
 	<!-- //Tin tuc -->
@@ -51,10 +47,6 @@
 	<!-- Introduce -->
 		@include('layouts.intro') <br> <br>
 	<!-- //Introduce -->
-
-	<!-- Bottom -->
-		{{-- @include('layouts.bottom') --}}
-	<!--//Bottom -->
 
 	<!-- Footer Section -->
 		@include('layouts.footer')
