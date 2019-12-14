@@ -12,10 +12,13 @@
 */
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MyController;
+use Illuminate\Http\Request;
+use App\Quan;
 
 Route::get('/', function () {
     return view('layouts.main');
-});
+})->name('page');
 
 Route::get('/user', function () {
     return view('layouts.mainLogin');
@@ -57,15 +60,11 @@ Route::get('/user', function () {
         'uses'  => 'BlogController@Danhmuc'
     ]);
 
-    
 
     Route::get('/blog/{id}', [
         'as'   => 'blog.show',
         'uses'  => 'BlogController@show'
     ]);
-
-
-  
 
     
     Route::get('/blog/{id}/edit', [
@@ -83,9 +82,24 @@ Route::get('/user', function () {
     ]);
 
     
-    
     // ------ end-blog ----------------------- //
 
+    // ------ Dat-san ----------------------- //
+   
+    Route::get('quan/{idQuan}', 'MyController@indexQuan')->name('quan.index');
+
+    
+
+    Route::get('san/{idSan}', 'MyController@indexSan')->name('san.index');
+
+    Route::post('san/{idSan}/tim-gio', 'MyController@getDate')->name('get.date');
+
+    Route::post('san/book', 'MyController@pushData')->name('push');
+
+    Route::post('messenger', 'MyController@store')->name('book');
+       
+    // ------ End-dat-san ----------------------- //
+ 
     // ------ Dang-Nhap ----------------------- //
 
     Route::get('/dangnhap', 'LoginController@getdangnhap');
@@ -94,10 +108,9 @@ Route::get('/user', function () {
 
     Route::get('/logout', 'LogoutController@getLogout');
 
-    // Route::get('/dangnhap',function(){
-    //     return view('layouts.main');
-    // });
 
     Route::get('auth/google', 'GoogleController@redirectToProvider');
 
     Route::get('auth/google/callback', 'GoogleController@handleProviderCallback');
+
+        // ------End-Dang-Nhap ----------------------- //

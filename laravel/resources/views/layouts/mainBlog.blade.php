@@ -21,11 +21,12 @@
 <script src="https://kit.fontawesome.com/b1d9add112.js" crossorigin="anonymous"></script>
 </head>
 <body>  
-    @include('layouts.header') <br>
+    @include('layouts.header') 
    
     @yield('body.content')
     
     @include('layouts.footer')
+
 </body> 
 </html>
 

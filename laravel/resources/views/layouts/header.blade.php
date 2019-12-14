@@ -1,4 +1,4 @@
-<div class="main">	
+<div class="main" >	
     <div class="agileits_web_banner_nav">
         <nav class="navbar navbar-default">
             <div class="navbar-header navbar-left">                

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogsTable extends Migration
+class CreateQuansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateBlogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog', function (Blueprint $table) {
-            $table->bigIncrements('id');
-
-            $table->string('title',200);
-            $table->string('content',2000);
+        Schema::create('quan', function (Blueprint $table) {
+            $table->bigIncrements('idQuan');
+            $table->string('tenQuan');
             
             $table->timestamps();
         });
@@ -30,6 +28,6 @@ class CreateBlogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog');
+        Schema::dropIfExists('quan');
     }
 }
