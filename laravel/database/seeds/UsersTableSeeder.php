@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Date;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,14 +14,16 @@ class UsersTableSeeder extends Seeder
     {
         $data=[
             [
-                'name'=>'Duc',
-                'email' => 'duc.18it@sict.udn.vn',
-                'password' =>bcrypt('duc1234'),
+                'name'=>'Đức',
+                'email' => 'duc@gmail.com',
+                'password' =>bcrypt('12345'),
+                'created_at'=>new DateTime(),
             ],
             [
-                'name'=>'Dong',
-                'email' => 'mvdong.18it2@sict.udn.vn',
-                'password' =>bcrypt('duc1234'),
+                'name'=>'Đông',
+                'email' => 'dong@gmail.com',
+                'password' =>bcrypt('12345'),
+                'created_at'=>new DateTime(),
             ],
         ];
         DB::table('users')->insert($data);

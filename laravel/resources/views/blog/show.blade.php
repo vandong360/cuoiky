@@ -26,12 +26,15 @@
             <br> 
             <p style="font-size: 17px; font-family: Tahoma;"> @php echo nl2br($get->content); @endphp </p>
             <br>
-            <a href="{{ route('blog.edit', $get->id) }}" class="btn btn-info">Cập nhật</a>
-            <form action="{{ route('blog.delete', $get->id) }}" method="post">
-                @csrf
-                @method('delete') <br>
-                <button type="submit" class="btn btn-danger">Xóa</button><br> <br>
-            </form>
+          
+            @if (Auth::check()&&Auth::user()->admin == 1)
+                <a href="{{ route('blog.edit', $get->id) }}" class="btn btn-info">Cập nhật</a>
+                <form action="{{ route('blog.delete', $get->id) }}" method="post">
+                    @csrf
+                    @method('delete') <br>
+                    <button type="submit" class="btn btn-danger">Xóa</button><br> <br>
+                </form>
+            @endif
         </div>             
     </div>
 </div> 

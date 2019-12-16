@@ -54,9 +54,26 @@
                     <a href="{{ route('quan.index',4) }}">
                       <i class="fas fa-caret-right">&ensp;</i> Quận Cẩm Lệ <span>2</span>
                     </a>
-                  </li>
-                  
+                  </li> 
                 </ul>
+
+
+              @if (Auth::check()&&Auth::user()->admin == 1 )
+                <header>
+                    <li>Administrator</li>
+                </header>
+                <ul class="nav">
+                    <li>
+                      <a href="{{ route('list.user') }}">
+                          <i class="fas fa-users">&ensp;</i> Quản lý User 
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ route('list.book') }}">
+                          <i class="fas fa-tasks">&ensp;</i> Quản lý lịch đặt sân 
+                      </a>
+                </ul>
+              @endif 
               </div>         
           </div>
       </div>
@@ -65,7 +82,7 @@
               <i class="fas fa-futbol fa-2x"> &ensp;<h2 style="float: right;" >SÂN BÓNG QUẬN {{ $quan->tenQuan }} </h2></i> 
             </div>
            
-
+            
             @foreach ($data as $d)        
             <div class="box">
               <div class="row">

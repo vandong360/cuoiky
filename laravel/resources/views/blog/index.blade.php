@@ -18,7 +18,9 @@
 
         <div id="menu">
             <ul>
-                <li><a href="{{ url('/blog/create') }}">Thêm Blog</a></li>
+                @if (Auth::check()&&Auth::user()->admin == 1)
+                    <li><a href="  {{ route('blog.create') }} ">Thêm Blog</a></li>
+                @endif
                 <li><a href="#">Danh mục</a>    
                     <ul class="sub-menu">
                         <li><a href="{{ route('blog.index') }}">Tổng hợp</a></li>

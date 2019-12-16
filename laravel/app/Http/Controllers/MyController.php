@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\DatLich;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\San;
 use App\Quan;
+use App\User;
 use Carbon\Carbon;
-
+use Mail;
+use \App\Mail\SendMail;
+use DB;
 class MyController extends Controller
 {
     public function getdangnhap() {
@@ -67,9 +71,10 @@ class MyController extends Controller
         $arr2 = [];
         $date = $request->date;
 
-        foreach( $get as $key=>$value ){
+        foreach( $get as $key=>$value ){ 
             $arr2[] = $value->time;
         }
+        
         
         $df = array_diff($arr1, $arr2);
 
@@ -94,18 +99,52 @@ class MyController extends Controller
     public function store(Request $request)
     {
         $new = new DatLich;
-        $new->idUser = '1';
-        $new->idSan = $request->san;
+        $new->idUser = $request->idUser;
+        $new->idSan = $request->idSan;
+        $new->tenSan = $request->tenSan;
         $new->tenKH = $request->tenKH;
         $new->sdt = $request->sdt;
         $new->date = $request->date;
         $new->time = $request->time;
         $new->note = $request->note;
-
         $new->save();
-        
-        echo "Đã đặt sân thành công";
-        echo " <a href='http://localhost/cuoiky/' >   Về trang chủ </a>";
+
+        $send = [
+            'name'  => $request->tenKH,
+            'sdt'   => $request->sdt,
+            'note'  => $request->note,
+            'tenSan'=> $request->tenSan,
+            'date'  => $request->date,
+            'time'  => $request->time
+        ];
+
+        \Mail::to($request->email)->send(new SendMail($send));
+
+        return redirect()->route('page');
     }
+
+    // Admin quan ly
+    public function listUser() {
+
+        $data = DB::table('users')->get();
+        return view('function.listUser', compact('data'));
+    }  
+    
+    public function listBook() {
+
+        $san = DB::table('san')->get();
+        $book = DB::table('book')->where('idUser','<>','1')->where('idUser','<>','2')->get();
+
+        return view('function.listBook', compact('san', 'book', 'san'));
+    } 
+
+    public function destroy($id)
+    {
+        $des = User::findOrFail($id);
+        $des->delete();
+        
+        return redirect()->back();
+    }
+
 
 }

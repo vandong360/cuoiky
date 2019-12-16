@@ -17,10 +17,12 @@
 
 <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome-icons -->
-<link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> 
+<link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
 </head>
 	
 <body>
+
+		
 	<!-- header -->
 		@include('layouts.header')
 	<!-- header -->
@@ -61,69 +63,23 @@
 			$(window).load(function () {
 				$('#JiSlider').JiSlider({color: '#fff', start: 1, reverse: false}).addClass('ff')
 			})
-		</script>
+</script>
 
 <!-- //footer -->
 <!-- stats -->
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/jquery.countup.js"></script>
-		<script>
-			$('.counter').countUp();
-		</script>
-<!-- //stats -->
- <!-- Custom-JavaScript-File-Links -->
-        <script type="text/javascript" src="js/moment.js"></script>
-        <script type="text/javascript" src="js/moment-timezone-with-data.js"></script>
-        <script type="text/javascript" src="js/timer.js"></script>
-    <!-- //Custom-JavaScript-File-Links -->
 
-<!-- requried-jsfiles-for owl -->
- <script src="js/owl.carousel.js"></script>
-							        <script>
-									    $(document).ready(function() {
-									      $("#owl-demo2").owlCarousel({
-									        items : 1,
-									        lazyLoad : false,
-									        autoPlay : true,
-									        navigation : false,
-									        navigationText :  false,
-									        pagination : true,
-									      });
-									    });
-									  </script>
-							 <!-- //requried-jsfiles-for owl -->
- <script src="js/index.js"></script>
-<script src="js/scrolling-nav.js"></script>  
+	<script type="text/javascript" src="js/moment.js"></script>
+	<script type="text/javascript" src="js/moment-timezone-with-data.js"></script>
+	<script type="text/javascript" src="js/timer.js"></script>
 
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
-</script>
-<!-- start-smoth-scrolling -->
-<!-- for bootstrap working -->
+						
+ 	<script src="js/index.js"></script>
+	<script src="js/scrolling-nav.js"></script>  
+
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
 	<script src="js/bootstrap.js"></script>
-<!-- //for bootstrap working -->
-<!-- here stars scrolling icon -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/						
-			$().UItoTop({ easingType: 'easeOutQuart' });
-								
-			});
-	</script>
-<!-- //here ends scrolling icon -->
 </body>
 </html>

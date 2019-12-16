@@ -1,94 +1,37 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MyController;
 use Illuminate\Http\Request;
 use App\Quan;
 
-Route::get('/', function () {
-    return view('layouts.main');
-})->name('page');
-
-Route::get('/user', function () {
-    return view('layouts.mainLogin');
-});
-
-
-
-
-
-
-
-
+    Route::get('/', function () {
+        return view('layouts.main');
+    })->name('page');
 
     // ------- blog -------------------------- //
 
-    // Route::get('/blog', 'BlogController@index');
+    Route::get('/blog', 'BlogController@index')->name('blog.index');
 
+    Route::get('/blog/create', 'BlogController@create')->name('blog.create');
 
-    Route::get('/blog', [
-        'as'  => 'blog.index',
-        'uses' => 'BlogController@index'
-    ]);
-    
-    
-    Route::get('/blog/create', [
-        'as'   => 'blog.create',
-        'uses'  => 'BlogController@create'
-    ]);
-    
-    
-    Route::post('/blog', [
-        'as'  => 'blog.store',
-        'uses' => 'BlogController@store'
-    ]);
-    
+    Route::post('/blog', 'BlogController@store')->name('blog.store');
+  
+    Route::get('/blog/danhmuc/{cate}', 'BlogController@Danhmuc')->name('blog.danhmuc');
 
-    Route::get('/blog/danhmuc/{cate}', [
-        'as'   => 'blog.danhmuc',
-        'uses'  => 'BlogController@Danhmuc'
-    ]);
+    Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
 
+    Route::get('/blog/{id}/edit', 'BlogController@edit')->name('blog.edit');
 
-    Route::get('/blog/{id}', [
-        'as'   => 'blog.show',
-        'uses'  => 'BlogController@show'
-    ]);
+    Route::delete('/blog-del/{id}','BlogController@destroy')->name('blog.delete');
 
-    
-    Route::get('/blog/{id}/edit', [
-        'as' => 'blog.edit',
-        'uses' => 'BlogController@edit'
-    ]);
-    Route::delete('/blog-del/{id}', [
-        'as' => 'blog.delete',
-        'uses' => 'BlogController@destroy'
-    ]);
-    
-    Route::put('/blog/{id}', [
-        'as'   => 'blog.update',
-        'uses'  => 'BlogController@update'
-    ]);
+    Route::put('/blog/{id}','BlogController@update')->name('blog.update');
 
-    
     // ------ end-blog ----------------------- //
 
     // ------ Dat-san ----------------------- //
    
     Route::get('quan/{idQuan}', 'MyController@indexQuan')->name('quan.index');
-
-    
 
     Route::get('san/{idSan}', 'MyController@indexSan')->name('san.index');
 
@@ -100,17 +43,24 @@ Route::get('/user', function () {
        
     // ------ End-dat-san ----------------------- //
  
-    // ------ Dang-Nhap ----------------------- //
+    // ------ Dang-Nhap Dang-Ky ----------------------- //
+    
+    Route::get('auth/register', 'LoginController@getReg')->name('get.reg');
 
-    Route::get('/dangnhap', 'LoginController@getdangnhap');
-
-    Route::post('/dangnhap', 'LoginController@postdangnhap');
-
-    Route::get('/logout', 'LogoutController@getLogout');
+    Route::post('auth/register', 'LoginController@postReg')->name('post.reg');
 
 
-    Route::get('auth/google', 'GoogleController@redirectToProvider');
+    Route::get('/logout', 'LogoutController@getLogout')->name('logout');
 
-    Route::get('auth/google/callback', 'GoogleController@handleProviderCallback');
+    Route::get('auth/login', 'LoginController@getLogin')->name('login');
 
+    Route::post('/user', 'LoginController@postLogin')->name('post.login');
         // ------End-Dang-Nhap ----------------------- //
+
+
+    // ----------    Administrator      ------------------- //
+    Route::get('admin/manager/user', 'MyController@listUser')->name('list.user');
+
+    Route::get('admin/manager/book', 'MyController@listBook')->name('list.book');
+
+    Route::delete('admin/manager/user/{id}', 'MyController@destroy')->name('del.user');

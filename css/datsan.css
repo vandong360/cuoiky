@@ -171,4 +171,8 @@ body {
 }
 
 
-/* Form popup */
+/* Table Manager */
+.tab {
+  margin: 2rem 2rem;
+  border: #455A64 1px solid;
+}

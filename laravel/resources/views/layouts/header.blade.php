@@ -11,10 +11,21 @@
                         <li class="menu__item menu__item--current"><a href="{{ url('/') }}" >Trang chủ</a></li>
                         <li class="menu__item"><a href="#quan" class="menu__link scroll">Tìm sân</a></li>
                         <li class="menu__item"><a href="{{ url('/blog') }}">Blog</a></li>
-                        <li class="menu__item">   
-                            <a class="nav-link text-white" href="{{ asset('/dangnhap') }}">Đăng nhập&ensp;</a>
-                            {{-- {{Auth::user()->name}} --}}
-                        </li>
+                        @if (Auth::check() )
+                            <li class="menu__item"> 
+                                <a class="nav-link text-white" href="{{route('logout') }} ">Đăng xuất - 
+                                    @if (Auth::user()->admin == 1)    
+                                        {{Auth::user()->name}} (administrator)
+                                    @else
+                                        {{Auth::user()->name}}  
+                                    @endif
+                                </a>
+                            </li>  
+                        @else    
+                            <li class="menu__item"> 
+                                <a class="nav-link text-white" href="{{ route('login') }}">Đăng nhập&ensp;</a>
+                            </li> 
+                        @endif
                     </ul>						
                 </nav>
             </div>

@@ -54,9 +54,25 @@
                     <a href="{{ route('quan.index',4) }}">
                       <i class="fas fa-caret-right">&ensp;</i> Quận Cẩm Lệ <span>2</span>
                     </a>
-                  </li>
-                  
+                  </li>           
                 </ul>
+
+              @if (Auth::check()&&Auth::user()->admin == 1 )
+                <header>
+                    <li>Administrator</li>
+                </header>
+                <ul class="nav">
+                    <li>
+                      <a href="{{ route('list.user') }}">
+                          <i class="fas fa-users">&ensp;</i> Quản lý User 
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ route('list.book') }}">
+                          <i class="fas fa-tasks">&ensp;</i> Quản lý lịch đặt sân 
+                      </a>
+                </ul>
+              @endif 
               </div>         
           </div>
       </div>
@@ -97,7 +113,7 @@
 
               <div class="col-sm-8">  
                 <div class="fix">      
-
+                    @if (Auth::check())
                       @foreach ($df as $d )                            
                         <form action="{{ route('push') }} " class="form-horizontal" method="POST" style="float: left; margin: 0 0 5px 5px;">    
                             <input type="hidden" name="_token" value="{{  csrf_token()  }}">             
@@ -108,6 +124,9 @@
                             <input type="submit"  class="btn btn-light" name="time" value="{{$d}} ">
                         </form>
                       @endforeach 
+                    @else 
+                      <span class="alert alert-danger "> Bạn phải đăng nhập trước!</span>
+                    @endif
                     
                 </div>                          
               </div>

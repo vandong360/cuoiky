@@ -1,9 +1,8 @@
 <div class="w3-agileits-about" id="about">
     <div class="container">
         <div class="w3-agileits-about-top">
-                <h3>Tại sao nên sử dụng Website của Chúng Tôi</h3>
-                <p>Hệ thống đặt sân tiện lợi, thao tác đơn giản. Dễ dàng tìm kiếm, đặt lịch. Sự lựa chọn hàng đầu cho bạn. </p>
-                <div class="clearfix"></div>
+            <h3>Tại sao nên sử dụng Website của Chúng Tôi</h3>
+            <p>Hệ thống đặt sân tiện lợi, thao tác đơn giản. Dễ dàng tìm kiếm, đặt lịch. Sự lựa chọn hàng đầu cho bạn. </p>
         </div>
         <div class="col-md-4 col-sm-4 w3-agileits-about-grid">
             <i class="fa fa-font-awesome" aria-hidden="true"></i>
